@@ -1,6 +1,6 @@
 ---
 name: zinkee-cli
-description: Quick operating guide for using the `zinkee` CLI safely and efficiently. Use when Codex needs to inspect, list, create, update, delete, upload, move, publish, or troubleshoot Zinkee resources through terminal commands, especially for schemas, records, files, displays, folders, teamspaces, comments, logs, config profiles, or JSON payload construction.
+description: Operating guide for using the `zinkee` CLI safely and efficiently. Use whenever Codex needs to inspect or modify a Zinkee workspace through terminal commands, especially for schemas, records, files, displays, folders, teamspaces, comments, logs, config profiles, JSON payload construction, or when a user wants the CLI usage to be validated against real command behavior.
 ---
 
 # Zinkee CLI
@@ -18,7 +18,9 @@ payload, output, or shell-safety details.
 2. Read [references/operational-guide.md](references/operational-guide.md) before any write
    operation or any task that needs JSON payloads, field typing, profiles, or `jq`.
 3. Prefer `zinkee --json --quiet ...` and post-process with `jq`.
-4. If anything still looks unclear, inspect `zinkee --help`,
+4. For high-volume commands such as `schema list` and `display list`, project down to a compact
+   summary immediately instead of pasting raw output into context.
+5. If anything still looks unclear, inspect `zinkee --help`,
    `zinkee <group> --help`, or `zinkee <group> <command> --help`.
 
 ## Workflow
@@ -26,6 +28,8 @@ payload, output, or shell-safety details.
 ### Discover resources first
 
 - Use `schema list` and `schema get` to identify schemas and fields before writing records.
+- For `schema list`, `display list`, `folder list`, and `teamspace list`, use `jq` summaries such
+  as `map({id, name, slug})` or targeted projections so the output stays readable.
 - Remember that schema and field inputs accept UUIDs or slugs, but most record payloads and API
   responses use field UUIDs.
 - Build UUID-to-slug maps from `schema get` instead of guessing field identifiers.
@@ -36,6 +40,14 @@ payload, output, or shell-safety details.
 - Use `jq`, not inline Python, for filtering and reshaping CLI output.
 - Use `--data -` when the JSON payload is non-trivial or needs to come from a pipeline.
 - Add `--yes` to destructive commands when the task is intentional and non-interactive.
+
+### Follow response-driven workflows
+
+- Do not assume create and delete commands all return the created object or an empty object.
+- Trust the API response, especially after `schema create`, because the backend may rewrite values
+  such as `id`, `name`, or `slug` to avoid conflicts.
+- After a write, prefer a follow-up `get` or a compact `list | jq ...` check if the return shape is
+  ambiguous.
 
 ### Respect local execution rules
 

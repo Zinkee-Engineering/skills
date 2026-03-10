@@ -100,7 +100,7 @@ Arguments:
 
 Options:
 - `--filter-field <filter_field>`: Field UUID or slug to filter on (optional)
-- `--filter-op <filter_op>`: Filter operator (e.g. '=') (optional)
+- `--filter-op <filter_op>`: Raw API comparison operator (e.g. `EQUAL`, `CONTAINS`, `ANY_OF`) (optional)
 - `--filter-value <filter_value>`: Filter value (optional)
 - `--date-field <date_field>`: Date field UUID or slug (optional)
 - `--date-start <date_start>`: Date range start (optional)
@@ -148,6 +148,10 @@ Manage Zinkee files
 ### `zinkee file upload <file_path> [--id <file_id>]`
 
 Upload a file to Zinkee (S3 backed)
+
+Note:
+- In the current CLI build, passing `--id` is the reliable path. Omitting it can trigger a backend
+  `400` because the multipart request still includes an empty `id` part.
 
 Arguments:
 - `<file_path>`: Path to the file to upload (required)
@@ -317,12 +321,18 @@ List all database folders
 
 Create a new database folder
 
+Payload note:
+- The JSON payload should use `folderId`, `name`, and `order`.
+
 Options:
 - `--data <data>`: JSON data (use '-' to read from stdin) (required)
 
 ### `zinkee folder update --data <data>`
 
 Update a database folder
+
+Payload note:
+- The JSON payload should use `folderId`, `name`, and `order`.
 
 Options:
 - `--data <data>`: JSON data (use '-' to read from stdin) (required)
@@ -361,12 +371,18 @@ List all teamspace folders
 
 Create a new teamspace group
 
+Payload note:
+- The JSON payload should use `folderId`, `name`, and `order`.
+
 Options:
 - `--data <data>`: JSON data (use '-' to read from stdin) (required)
 
 ### `zinkee teamspace update --data <data>`
 
 Update a teamspace group
+
+Payload note:
+- The JSON payload should use `folderId`, `name`, and `order`.
 
 Options:
 - `--data <data>`: JSON data (use '-' to read from stdin) (required)
