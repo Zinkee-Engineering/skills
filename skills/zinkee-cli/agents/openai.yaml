@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zinkee CLI"
+  short_description: "Guía rápida y segura del Zinkee CLI"
+  default_prompt: "Use $zinkee-cli para resolver tareas con el comando zinkee de forma rápida y segura."
