@@ -1,0 +1,36 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zinkee",
+  "version": "0.1.0",
+  "description": "Work with your Zinkee workspace: tables, records, comments and history, with your own Zinkee user and permissions.",
+  "author": {
+    "name": "Zinkee",
+    "url": "https://zinkee.com"
+  },
+  "homepage": "https://zinkee.com",
+  "repository": "https://github.com/Zinkee-Engineering/skills",
+  "license": "MIT",
+  "keywords": ["zinkee", "mcp", "operations", "records"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Zinkee",
+        "shortDescription": "Your Zinkee workspace data",
+        "longDescription": "Connect Zinkee with your own user: query and summarise records, create and update them, comment, and see their history. Administrators can also create and change tables and fields. Every action uses your Zinkee permissions, in the workspace you choose when you connect.",
+        "developerName": "Zinkee",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://zinkee.com",
+        "privacyPolicyURL": "https://zinkee.com/terminos-condiciones#politica-de-privacidad",
+        "termsOfServiceURL": "https://zinkee.com/condiciones-prestacion-servicios",
+        "defaultPrompt": [
+          "Use Zinkee to list my tables and summarise what each one holds.",
+          "Use Zinkee to count this month's records by status."
+        ],
+        "brandColor": "#4765F2",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

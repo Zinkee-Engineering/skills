@@ -1,0 +1,17 @@
+{
+  "name": "zinkee",
+  "displayName": "Zinkee",
+  "version": "0.1.0",
+  "description": "Work with your Zinkee workspace from Claude Code: tables, records, comments and history, with your own Zinkee user and permissions.",
+  "author": {
+    "name": "Zinkee",
+    "url": "https://zinkee.com"
+  },
+  "homepage": "https://zinkee.com",
+  "repository": "https://github.com/Zinkee-Engineering/skills",
+  "license": "MIT",
+  "keywords": ["zinkee", "mcp", "operations", "records"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://doc.zinkee.com",
+  "privacyPolicyUrl": "https://zinkee.com/terminos-condiciones#politica-de-privacidad"
+}
