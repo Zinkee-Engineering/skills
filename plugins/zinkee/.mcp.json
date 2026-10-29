@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "zinkee": {
+      "type": "http",
+      "url": "https://mcp.zinkee.com/mcp"
+    }
+  }
+}

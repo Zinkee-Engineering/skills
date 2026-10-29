@@ -1,0 +1,20 @@
+{
+  "name": "zinkee",
+  "interface": {
+    "displayName": "Zinkee"
+  },
+  "plugins": [
+    {
+      "name": "zinkee",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zinkee"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
